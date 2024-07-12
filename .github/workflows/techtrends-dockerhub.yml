@@ -29,7 +29,7 @@ jobs:
           push: true
           tags: |
             yotaponta/techtrends:latest
-          dockerfile: /Users/a5014094/nd064_course_1/project/Dockerfile
+          dockerfile: ./project/Dockerfile
           python-version: ${{matrix.python-version}}
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
