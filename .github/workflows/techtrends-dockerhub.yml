@@ -24,12 +24,12 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./project/Dockerfile 
+          file: /Users/a5014094/nd064_course_1/project/Dockerfile 
           platforms: linux/amd64
           push: true
           tags: |
             yotaponta/techtrends:latest
-          dockerfile: ./project/Dockerfile
+          dockerfile: /Users/a5014094/nd064_course_1/project/Dockerfile
           python-version: ${{matrix.python-version}}
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
