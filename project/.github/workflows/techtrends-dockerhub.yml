@@ -26,6 +26,6 @@ jobs:
           tags: |
             yotaponta/techtrends:latest
           #dockerfile: ./Dockerfile
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
+        #env:
+          #DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          #DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
