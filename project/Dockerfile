@@ -10,9 +10,8 @@ COPY ./techtrends/requirements.txt ./
 
 # Copy and install requirements
 #RUN pip install --no-cache-dir -r requirements.txt
-RUN pip install -r requirements.txt
 
-COPY ./techtrends ./
+#COPY ./techtrends ./
 # Initialize database and start application
 RUN python init_db.py
 
