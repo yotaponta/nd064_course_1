@@ -4,7 +4,7 @@ LABEL maintainer="yotaponta"
 
 COPY . /app
 WORKDIR /app
-COPY ./techtrends/requirements.txt ./
+#COPY ./techtrends/requirements.txt ./
 # Expose the application port
 #EXPOSE 7111
 
