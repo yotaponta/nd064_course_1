@@ -1,9 +1,13 @@
 import sqlite3
+import os
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+schme_file = os.path.join(current_dir, 'schema.sql')
 
 connection = sqlite3.connect('database.db')
 
-
-with open('schema.sql') as f:
+#with open('schema.sql') as f:
+with open(schme_file) as f:
     connection.executescript(f.read())
 
 cur = connection.cursor()

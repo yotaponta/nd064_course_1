@@ -1,4 +1,5 @@
 import sqlite3
+import logging
 
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
@@ -43,6 +44,7 @@ def post(post_id):
 # Define the About Us page
 @app.route('/about')
 def about():
+    app.logger.info('About Us page retrieved.' )
     return render_template('about.html')
 
 # Define the post creation functionality 
@@ -65,6 +67,37 @@ def create():
 
     return render_template('create.html')
 
+@app.route('/healthz')
+def health_check():
+    #Return HTTP 200 and JSON response
+    return jsonify({"result": "OK - healthy"}), 200
+
+@app.route('/metrics')
+def metrics():
+#    # Calculate metrics
+    connection = get_db_connection()
+    post_count = connection.execute('SELECT COUNT(*) FROM posts').fetchone()[0]
+    connection.close()
+#    # Return HTTP 200 and JSON response
+    return jsonify({"db_connection_count": db_connection_count, "post_count": post_count}), 200
+
+#def calculate_post_count():
+#    return 7
+
+db_connection_count = 0
+@app.before_request
+def before_request():
+    global db_connection_count
+    db_connection_count += 1
+    app.logger.info('New database connection. Total connections: %d', db_connection_count)
+
+if not app.debug:
+    stream_handler = logging.StreamHandler()
+    stream_handler.setLevel(logging.DEBUG)
+    app.logger.addHandler(stream_handler)
+
+
 # start the application on port 3111
 if __name__ == "__main__":
    app.run(host='0.0.0.0', port='3111')
+
