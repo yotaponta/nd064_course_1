@@ -13,7 +13,7 @@ WORKDIR /app
 
 #COPY ./techtrends ./
 # Initialize database and start application
-RUN python init_db.py
+#RUN python init_db.py
 
 # command to run on container start
 CMD [ "python", "app.py" ]
