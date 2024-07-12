@@ -6,7 +6,7 @@ COPY . /app
 WORKDIR /app
 COPY ./techtrends/requirements.txt ./
 # Expose the application port
-EXPOSE 7111
+#EXPOSE 7111
 
 # Copy and install requirements
 RUN pip install --no-cache-dir -r requirements.txt
