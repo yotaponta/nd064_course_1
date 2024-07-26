@@ -4,14 +4,17 @@ LABEL maintainer="yotaponta"
 
 COPY . /app
 WORKDIR /app
-COPY ./techtrends/requirements.txt ./
+##COPY ./techtrends/requirements.txt ./
+COPY ./project/techtrends/requirements.txt ./
 # Expose the application port
 #EXPOSE 7111
 
 # Copy and install requirements
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY ./techtrends ./
+#
+#COPY ./techtrends ./
+COPY ./project/techtrends ./
 # Initialize database and start application
 RUN python init_db.py
 
