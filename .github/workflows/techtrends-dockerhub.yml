@@ -20,7 +20,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build Docker image
-      run: docker build -t techtrends:latest C:\Users\a5014094\nd064_course_1\project\
+      run: docker build -t techtrends:latest ../../project/Dockerfile
 
     - name: Push Docker image to Docker Hub
       run: docker push yotaponta/dockertest:techtrends:latest
