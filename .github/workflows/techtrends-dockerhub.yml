@@ -23,4 +23,4 @@ jobs:
       run: docker build -t techtrends:latest -f ./project/Dockerfile .
 
     - name: Push Docker image to Docker Hub
-      run: docker push yotaponta/dockertest:techtrends:latest
+      run: docker push yotaponta/dockertest:techtrends
