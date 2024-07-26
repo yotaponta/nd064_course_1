@@ -4,7 +4,10 @@ LABEL maintainer="yotaponta"
 
 COPY . /app
 WORKDIR /app
+
+# Single Dockerfile
 ##COPY ./techtrends/requirements.txt ./
+# GitHub Action Dockerfile
 COPY ./project/techtrends/requirements.txt ./
 # Expose the application port
 #EXPOSE 7111
@@ -12,8 +15,9 @@ COPY ./project/techtrends/requirements.txt ./
 # Copy and install requirements
 RUN pip install --no-cache-dir -r requirements.txt
 
-#
-#COPY ./techtrends ./
+#- Signle Dockerfile
+##COPY ./techtrends ./
+# GitHub Action Dockerfile
 COPY ./project/techtrends ./
 # Initialize database and start application
 RUN python init_db.py
