@@ -1,9 +1,4 @@
 namespace: staging
-
-image:
-  repository: 'https://github.com/yotaponta/nd064_course_1'
-  tag: latest
-  
 service:
   port: 5111
 
