@@ -1,9 +1,8 @@
 apiVersion: v1
-name: helm
+name: techtrends
 description: A Helm chart for deploying TechTrends application
 version: 1.0.0
 maintainers:
   - name: yotaponta
-    email: my-email@example.com
 keywords:
   - techtrends
