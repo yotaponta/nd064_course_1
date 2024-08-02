@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/yotaponta/nd064_course_1/'
     targetRevision: HEAD
-    path: project/helm/templates
+    path: project/helm
     helm:
       valueFiles:
         - values-prod.yaml
