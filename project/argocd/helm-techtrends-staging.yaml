@@ -8,10 +8,10 @@ spec:
   source:
     repoURL: 'https://github.com/yotaponta/nd064_course_1/'
     targetRevision: HEAD
-    path: project/helm/templates
+    path: project/helm
     helm:
       valueFiles:
-        - values-staging.yaml
+        - templates/values-staging.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: staging
