@@ -7,8 +7,8 @@ service:
   type: ClusterIP
 
 image:
-##  repository: 'https://github.com/yotaponta/nd064_course_1'
-  repository: techtrends
+  repository: 'https://github.com/yotaponta/nd064_course_1'
+##  repository: yotaponta/dockertest:techtrends
   tag: latest
   pullPolicy: IfNotPresent
 
