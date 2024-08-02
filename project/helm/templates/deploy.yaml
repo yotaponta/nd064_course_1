@@ -15,7 +15,6 @@ spec:
     spec:
       containers:
       - name: techtrends
-        ##image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         image: yotaponta/dockertest:techtrends:latest
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
@@ -39,3 +38,6 @@ spec:
             port: {{ .Values.readinessProbe.port }}
           initialDelaySeconds: 5
           periodSeconds: 5
+
+
+## image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
