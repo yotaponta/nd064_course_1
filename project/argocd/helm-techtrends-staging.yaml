@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/yotaponta/nd064_course_1/tree/main/project'
     targetRevision: HEAD
-    path: charts/techtrends
+    path: helm/templates
     helm:
       valueFiles:
         - values-staging.yaml
