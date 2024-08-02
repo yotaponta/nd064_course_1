@@ -38,11 +38,3 @@ spec:
           initialDelaySeconds: 5
           periodSeconds: 5
 
-
-## image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-##        imagePullPolicy: {{ .Values.image.pullPolicy }}
-
-##            path: {{ .Values.livenessProbe.path }}
-##            port: {{ .Values.livenessProbe.port }}
-##            path: {{ .Values.readinessProbe.path }}
-##            port: {{ .Values.readinessProbe.port }}
