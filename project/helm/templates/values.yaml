@@ -7,7 +7,7 @@ service:
   type: ClusterIP
 
 image:
-  repository: techtrends
+  repository: 'https://github.com/yotaponta/nd064_course_1'
   tag: latest
   pullPolicy: IfNotPresent
 
