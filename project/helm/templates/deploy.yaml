@@ -27,17 +27,22 @@ spec:
             cpu: "{{ .Values.resources.limits.cpu }}"
         livenessProbe:
           httpGet:
-            path: {{ .Values.livenessProbe.path }}
-            port: {{ .Values.livenessProbe.port }}
+            path: /healthz
+            port: 3111
           initialDelaySeconds: 30
           periodSeconds: 10
         readinessProbe:
           httpGet:
-            path: {{ .Values.readinessProbe.path }}
-            port: {{ .Values.readinessProbe.port }}
+            path: /healthz
+            port: 3111
           initialDelaySeconds: 5
           periodSeconds: 5
 
 
 ## image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
 ##        imagePullPolicy: {{ .Values.image.pullPolicy }}
+
+##            path: {{ .Values.livenessProbe.path }}
+##            port: {{ .Values.livenessProbe.port }}
+##            path: {{ .Values.readinessProbe.path }}
+##            port: {{ .Values.readinessProbe.port }}
