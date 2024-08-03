@@ -1,22 +1,16 @@
 import sqlite3
 import logging
-#import sys
+###import sys
 
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
-
-# Connfigure log output
-#logging.basicConfig(
-#    level=logging.DEBUG,
-#    format='%(asctime)s - %(levelname)s - %(message)s',
-#    handlers=[logging.StreamHandler(sys.stdout)]
-#)
+from logging import StreamHandler
 
 
 # Function to get a database connection.
 # This function connects to database with the name `database.db`
 def get_db_connection():
-    connection = sqlite3.connect('database.db')
+    connection = sqlite3.connect('../database.db')
     connection.row_factory = sqlite3.Row
     return connection
 
@@ -31,6 +25,7 @@ def get_post(post_id):
 # Define the Flask application
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your secret key'
+
 
 # Define the main route of the web application 
 @app.route('/')
@@ -64,6 +59,7 @@ def create():
         content = request.form['content']
 
         if not title:
+            app.logger.error('No title.')
             flash('Title is required!')
         else:
             connection = get_db_connection()
@@ -79,6 +75,7 @@ def create():
 @app.route('/healthz')
 def health_check():
     #Return HTTP 200 and JSON response
+    app.logger.info('healthz page retrieved')
     return jsonify({"result": "OK - healthy"}), 200
 
 @app.route('/metrics')
@@ -100,10 +97,15 @@ def before_request():
     db_connection_count += 1
     app.logger.info('New database connection. Total connections: %d', db_connection_count)
 
-if not app.debug:
-    stream_handler = logging.StreamHandler()
-    stream_handler.setLevel(logging.DEBUG)
-    app.logger.addHandler(stream_handler)
+
+#Configure log output
+handler = StreamHandler()
+handler.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
+app.logger.addHandler(handler)
+app.logger.setLevel(logging.DEBUG)
+
 
 
 # start the application on port 3111
