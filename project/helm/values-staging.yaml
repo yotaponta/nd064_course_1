@@ -11,4 +11,4 @@ resources:
     cpu: "300m"
   limits:
     memory: "128Mi"
-    cpu: "501m"
+    cpu: "500m"
