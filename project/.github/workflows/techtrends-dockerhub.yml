@@ -23,6 +23,6 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         context: .
-        file: ../project/Dockerfile
+        file: ./Dockerfile
         push: true
-        tags: yotaponta/dockertest:latest
+        tags: yotaponta/techtrends:latest

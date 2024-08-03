@@ -6,19 +6,19 @@ COPY . /app
 WORKDIR /app
 
 # Single Dockerfile
-COPY ./techtrends/requirements.txt ./
+##COPY ./techtrends/requirements.txt ./
 # GitHub Action Dockerfile
-#COPY ./project/techtrends/requirements.txt ./
+COPY ./project/techtrends/requirements.txt ./
 # Expose the application port
-EXPOSE 3111
+#EXPOSE 3111
 
 # Copy and install requirements
 RUN pip install --no-cache-dir -r requirements.txt
 
 #- Signle Dockerfile
-COPY ./techtrends ./
+##COPY ./techtrends ./
 # GitHub Action Dockerfile
-##COPY ./project/techtrends ./
+COPY ./project/techtrends ./
 # Initialize database and start application
 RUN python init_db.py
 

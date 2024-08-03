@@ -1,8 +1,17 @@
 import sqlite3
 import logging
+#import sys
 
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
+
+# Connfigure log output
+#logging.basicConfig(
+#    level=logging.DEBUG,
+#    format='%(asctime)s - %(levelname)s - %(message)s',
+#    handlers=[logging.StreamHandler(sys.stdout)]
+#)
+
 
 # Function to get a database connection.
 # This function connects to database with the name `database.db`
