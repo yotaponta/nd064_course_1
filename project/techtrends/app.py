@@ -41,8 +41,11 @@ def index():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
+      app.logger.error('No page.')
       return render_template('404.html'), 404
     else:
+      title=post['title']
+      app.logger.info(f'Article retrieved!: {title}')
       return render_template('post.html', post=post)
 
 # Define the About Us page
@@ -63,6 +66,7 @@ def create():
             flash('Title is required!')
         else:
             connection = get_db_connection()
+            app.logger.info('Title: %s', title)
             connection.execute('INSERT INTO posts (title, content) VALUES (?, ?)',
                          (title, content))
             connection.commit()

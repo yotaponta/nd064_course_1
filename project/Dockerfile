@@ -10,7 +10,7 @@ WORKDIR /app
 # GitHub Action Dockerfile
 COPY ./project/techtrends/requirements.txt ./
 # Expose the application port
-#EXPOSE 3111
+EXPOSE 3111
 
 # Copy and install requirements
 RUN pip install --no-cache-dir -r requirements.txt
