@@ -10,7 +10,10 @@ from logging import StreamHandler
 # Function to get a database connection.
 # This function connects to database with the name `database.db`
 def get_db_connection():
-    connection = sqlite3.connect('../database.db')
+    # Techtrends - direct execution path
+    ##connection = sqlite3.connect('../database.db')
+    # Project - Docker exectution path
+    connection = sqlite3.connect('database.db')
     connection.row_factory = sqlite3.Row
     return connection
 
