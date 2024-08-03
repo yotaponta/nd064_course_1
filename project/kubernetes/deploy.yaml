@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: techtrends
-        image: yotaponta/techtrends:latest
+        image: techtrends:latest
         ports:
         -  containerPort: 3111
         resources:
